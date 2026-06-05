@@ -1,0 +1,6 @@
+{
+  "name": "pouzat.fr AI Workspace",
+  "description": "Une plateforme web d'intelligence hybride de premier ordre par Amiel Pouzat, optimisant la haute performance et la disponibilité continue.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

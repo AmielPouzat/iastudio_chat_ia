@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Google AI Studio App</title>
+    <script>
+      // Safeguard: Redefine window.fetch to be writable via a setter.
+      // This prevents "Uncaught TypeError: Cannot set property fetch of #<Window> which has only a getter"
+      // when sandboxed environment shims or browser extensions attempt to wrap/mock the native fetch.
+      (function() {
+        try {
+          var nativeFetch = window.fetch;
+          var activeFetch = nativeFetch;
+          Object.defineProperty(window, 'fetch', {
+            get: function() { return activeFetch; },
+            set: function(val) { activeFetch = val; },
+            configurable: true,
+            enumerable: true
+          });
+        } catch (e) {
+          console.warn("Could not patch window.fetch getter/setter:", e);
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
